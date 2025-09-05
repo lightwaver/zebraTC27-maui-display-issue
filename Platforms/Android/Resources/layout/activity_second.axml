@@ -27,20 +27,20 @@
                 android:layout_marginBottom="16dp"
                 android:elevation="2dp">
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="Stage:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                    <TextView android:text="Produktion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                        <TextView android:text="Stage:" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:background="#F4F4F4" />
+                        <TextView android:text="Produktion" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="#000000" android:gravity="end" android:background="#F4F4F4" />
                 </LinearLayout>
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="Version:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                    <TextView android:text="1.0.1.1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                        <TextView android:text="Version:" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:background="#F4F4F4" />
+                        <TextView android:text="1.0.1.1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="#000000" android:gravity="end" android:background="#F4F4F4" />
                 </LinearLayout>
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="DeviceId:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                    <TextView android:text="EF500" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                        <TextView android:text="DeviceId:" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:background="#F4F4F4" />
+                        <TextView android:text="EF500" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="#000000" android:gravity="end" android:background="#F4F4F4" />
                 </LinearLayout>
                 <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
-                    <TextView android:text="IP:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-                    <TextView android:text="10.51.51.51" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                        <TextView android:text="IP:" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:background="#F4F4F4" />
+                        <TextView android:text="10.51.51.51" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textColor="#000000" android:gravity="end" android:background="#F4F4F4" />
                 </LinearLayout>
             </LinearLayout>
 
