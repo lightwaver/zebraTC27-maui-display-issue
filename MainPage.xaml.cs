@@ -120,9 +120,17 @@ public partial class MainPage : ContentPage
         //    }
         //}
 #if ANDROID
-
+        //https://github.com/xamarin/Xamarin.Forms/issues/13043
         var context = Android.App.Application.Context;
         var metricsDisplay = context.Resources.DisplayMetrics;
+
+        var displayManager = (Android.Hardware.Display.DisplayManager)context.GetSystemService(Context.DisplayService);
+        var display = displayManager.GetDisplays().FirstOrDefault(a => a.DisplayId != 0);
+
+        if (display != null)
+        {
+            display.GetMetrics(metricsDisplay);
+        }
         //var width = metricsDisplay.WidthPixels / metricsDisplay.Density;
         //var height = metricsDisplay.HeightPixels / metricsDisplay.Density;
 
