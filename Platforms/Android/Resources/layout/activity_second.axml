@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ScrollView
+        android:id="@+id/contentScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonRow"
+        android:background="#FFFFFF">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="#FFFFFF">
+
+            <!-- Geräteinformationen Section (no header/top bar) -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F4F4F4"
+                android:padding="8dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="2dp">
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Stage:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:text="Produktion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="Version:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:text="1.0.1.1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="DeviceId:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:text="EF500" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:text="IP:" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:text="10.51.51.51" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Info Text -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bitte stecke das Zustellgerät in die Workstation. Das Gerät verbindet sich dann automatisch mit dem Monitor."
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Image -->
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/mdedockingstation"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp"
+                android:background="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons Row at the bottom -->
+    <LinearLayout
+        android:id="@+id/buttonRow"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="24dp"
+        android:background="#FFFFFF">
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Zurück"
+            android:background="@drawable/button_rounded_white"
+            android:textColor="#0078C8"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:gravity="center"
+            android:elevation="2dp" />
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Login"
+            android:background="@drawable/button_rounded_blue"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"
+            android:gravity="center"
+            android:elevation="2dp" />
+    </LinearLayout>
+</RelativeLayout>

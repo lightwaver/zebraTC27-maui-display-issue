@@ -1,0 +1,84 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp4"
+             x:Class="MauiApp4.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+
+                <ResourceDictionary>
+                    <!--
+    https://amarillo.post.at/web/foundations/color
+    -->
+
+                    <Color x:Key="Brand">#FFDC00</Color>
+                    <Color x:Key="Brand75">#FFE454</Color>
+                    <Color x:Key="Brand50">#FFED99</Color>
+                    <Color x:Key="Brand25">#FFF6D0</Color>
+
+                    <Color x:Key="PrimaryMain">#0078C8</Color>
+                    <Color x:Key="PrimaryLight">#008CE6</Color>
+                    <Color x:Key="PrimaryDark">#005FA0</Color>
+
+                    <Color x:Key="ErrorMain">#D20019</Color>
+                    <Color x:Key="ErrorLight">#F0001E</Color>
+                    <Color x:Key="ErrorDark">#B40014</Color>
+
+                    <!--
+    Action
+    -->
+                    <Color x:Key="ActionDisabledBackground">#DEDEDE</Color>
+                    <Color x:Key="ActionDisabled">#717171</Color>
+
+                    <!--Text-->
+                    <Color x:Key="TextPrimary">#000000</Color>
+                    <Color x:Key="TextContrast">#FFFFFF</Color>
+                    <Color x:Key="TextSecondary">#393F42</Color>
+                    <Color x:Key="TextDisabled">#717171</Color>
+
+                    <Style TargetType="{x:Type Grid}">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource Brand50}" />
+                    </Style>
+
+                    <Style TargetType="{x:Type VerticalStackLayout}">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource Brand50}" />
+                    </Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryMain}" />
+                        <Setter Property="TextColor" Value="{DynamicResource TextContrast}" />
+                        <Setter Property="CornerRadius" Value="6" />
+                        <Setter Property="FontSize" Value="12" />
+                        <Setter Property="FontFamily" Value="PostSansBold" />
+                    </Style>
+
+                    <Style x:Key="WhiteBackgroundButtonStyle" TargetType="{x:Type Button}">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource White}" />
+                        <Setter Property="TextColor" Value="{DynamicResource PrimaryMain}" />
+                        <Setter Property="BorderColor" Value="{DynamicResource PrimaryMain}" />
+                        <Setter Property="CornerRadius" Value="6" />
+                        <Setter Property="FontSize" Value="12" />
+                        <Setter Property="FontFamily" Value="PostSansBold" />
+                        <Setter Property="BorderWidth" Value="2" />
+                    </Style>
+
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="FontSize" Value="12" />
+                        <Setter Property="FontFamily" Value="PostSansRegular" />
+                        <Setter Property="TextColor" Value="{DynamicResource TextPrimary}" />
+                    </Style>
+
+                    <Style x:Key="BoldLabelStyle" TargetType="{x:Type Label}">
+                        <Setter Property="FontSize" Value="12" />
+                        <Setter Property="FontFamily" Value="PostSansBold" />
+                        <Setter Property="TextColor" Value="{DynamicResource TextPrimary}" />
+                    </Style>
+
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
