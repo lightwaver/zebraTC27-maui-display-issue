@@ -105,6 +105,7 @@
                         Style="{StaticResource WhiteBackgroundButtonStyle}"
                         CommandParameter="back"
                         IsEnabled="{Binding IsEnabled}"
+                            Clicked="Back_Clicked"
                         HeightRequest="48"
                         WidthRequest="84"
                         HorizontalOptions="Start" 
