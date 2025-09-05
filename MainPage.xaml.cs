@@ -1,10 +1,13 @@
 ﻿#if ANDROID
 using Android.Content;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 #endif
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Platform;
+using System.Runtime.CompilerServices;
 namespace MauiApp4;
 
 public partial class MainPage : ContentPage
@@ -103,7 +106,7 @@ public partial class MainPage : ContentPage
             await DisplayAlert("Error", ex.Message, "OK");
         }
     }
-    private void ClickMe_Clicked(object sender,EventArgs e)
+    private void ClickMe_Clicked(object sender, EventArgs e)
     {
         //((IVisualElementController)this).InvalidateMeasure(Microsoft.Maui.Controls.Internals.InvalidationTrigger.MeasureChanged);
 
@@ -120,8 +123,12 @@ public partial class MainPage : ContentPage
 
         var context = Android.App.Application.Context;
         var metricsDisplay = context.Resources.DisplayMetrics;
-        var width = metricsDisplay.WidthPixels / metricsDisplay.Density;
-        var height = metricsDisplay.HeightPixels / metricsDisplay.Density;
+        //var width = metricsDisplay.WidthPixels / metricsDisplay.Density;
+        //var height = metricsDisplay.HeightPixels / metricsDisplay.Density;
+
+        var width = context.FromPixels(metricsDisplay.WidthPixels);
+        var height = context.FromPixels(metricsDisplay.HeightPixels);
+
 
         var handler = this.Handler as IPlatformViewHandler;
         var nativeView = handler.PlatformView;
@@ -130,4 +137,5 @@ public partial class MainPage : ContentPage
 
 #endif
     }
+
 }
