@@ -97,6 +97,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <!-- Back Button -->
@@ -120,6 +121,15 @@
                     HorizontalOptions="End"  
                             Clicked="Login_Clicked"
                     VerticalOptions="Center"/>
+                    
+                    
+                    <Button Grid.Column="3"
+                        Text="Click Me"
+                        HeightRequest="48"
+                        WidthRequest="84"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"
+                        Clicked="ClickMe_Clicked"/>
                 </Grid>
             </Grid>
         </Grid>
