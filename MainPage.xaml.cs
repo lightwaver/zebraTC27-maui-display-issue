@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.Runtime;
 using Android.Views;
+#endif
 using Microsoft.Maui.ApplicationModel;
 namespace MauiApp4;
 
@@ -22,11 +23,12 @@ public partial class MainPage : ContentPage
     private void Login_Clicked(object sender, EventArgs e)
     {
 
-
+#if ANDROID
         var context = Android.App.Application.Context;
         var intent = new Intent(context, typeof(MauiApp4.Platforms.Android.SecondActivity));
         intent.SetFlags(ActivityFlags.NewTask);
         context.StartActivity(intent);
+#endif
     }
     private IEnumerable<IView> GetAllVisualElements(IView root)
     {
@@ -75,13 +77,13 @@ public partial class MainPage : ContentPage
         {
             var visualElements = GetAllVisualElements(App.Current.MainPage);
             await ShowVisualElementSizes(visualElements.ToList());
+#if ANDROID
             var context = Android.App.Application.Context;
             var metrics = context.Resources.DisplayMetrics;
             var widthPixels = metrics.WidthPixels;
             var heightPixels = metrics.HeightPixels;
             var density = metrics.Density;
             var dpi = metrics.DensityDpi;
-
             var windowManager = context.GetSystemService(Context.WindowService).JavaCast<IWindowManager>();
             var rotation = windowManager.DefaultDisplay.Rotation;
             var orientation = context.Resources.Configuration.Orientation;
@@ -93,6 +95,7 @@ public partial class MainPage : ContentPage
                           $"Orientation: {orientation}";
 
             await DisplayAlert("Display Info", info, "OK");
+#endif
         }
         catch (Exception ex)
         {
@@ -101,15 +104,16 @@ public partial class MainPage : ContentPage
     }
     private void ClickMe_Clicked(object sender,EventArgs e)
     {
-        var visualElements = GetAllVisualElements(App.Current.MainPage);
-        foreach(var view in visualElements)
-        {
-            if(view is Microsoft.Maui.Controls.ContentView v)
-            {
-                v.ForceLayout();
-            }
-        }
+        ((IVisualElementController)this).InvalidateMeasure(Microsoft.Maui.Controls.Internals.InvalidationTrigger.MeasureChanged);
+
+        //var visualElements = GetAllVisualElements(App.Current.MainPage);
+        //foreach(var view in visualElements)
+        //{
+        //    if(view is Microsoft.Maui.Controls.ContentView v)
+        //    {
+        //        v.ForceLayout();
+                
+        //    }
+        //}
     }
 }
-
-#endif
