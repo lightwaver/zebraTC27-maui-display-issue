@@ -4,6 +4,7 @@ using Android.Runtime;
 using Android.Views;
 #endif
 using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
 namespace MauiApp4;
 
 public partial class MainPage : ContentPage
@@ -104,7 +105,7 @@ public partial class MainPage : ContentPage
     }
     private void ClickMe_Clicked(object sender,EventArgs e)
     {
-        ((IVisualElementController)this).InvalidateMeasure(Microsoft.Maui.Controls.Internals.InvalidationTrigger.MeasureChanged);
+        //((IVisualElementController)this).InvalidateMeasure(Microsoft.Maui.Controls.Internals.InvalidationTrigger.MeasureChanged);
 
         //var visualElements = GetAllVisualElements(App.Current.MainPage);
         //foreach(var view in visualElements)
@@ -112,8 +113,21 @@ public partial class MainPage : ContentPage
         //    if(view is Microsoft.Maui.Controls.ContentView v)
         //    {
         //        v.ForceLayout();
-                
+
         //    }
         //}
+#if ANDROID
+
+        var context = Android.App.Application.Context;
+        var metricsDisplay = context.Resources.DisplayMetrics;
+        var width = metricsDisplay.WidthPixels / metricsDisplay.Density;
+        var height = metricsDisplay.HeightPixels / metricsDisplay.Density;
+
+        var handler = this.Handler as IPlatformViewHandler;
+        var nativeView = handler.PlatformView;
+        this.Arrange(new Rect(0, 0, width, height));
+        handler?.UpdateValue(nameof(IView.Arrange));
+
+#endif
     }
 }
