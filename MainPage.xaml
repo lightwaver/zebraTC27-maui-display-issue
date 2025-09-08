@@ -78,7 +78,7 @@
                 <!-- Row 3: Image -->
                 <Grid x:Name="ImageRow" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="0,40" BackgroundColor="{StaticResource White}">
                     <Image Source="Ressources/Images/mdedockingstation.png"
-                    Aspect="AspectFill"
+                    Aspect="AspectFit"
                     BackgroundColor="White"
                     HorizontalOptions="Center"
                     VerticalOptions="Center">
@@ -149,7 +149,8 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" /> <!-- New row added -->
-                    </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
+
     
                 </Grid>
             </Grid>
