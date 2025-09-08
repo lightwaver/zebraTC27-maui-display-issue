@@ -106,8 +106,17 @@ public partial class MainPage : ContentPage
             await DisplayAlert("Error", ex.Message, "OK");
         }
     }
-    private void ClickMe_Clicked(object sender, EventArgs e)
+    private async void ClickMe_Clicked(object sender, EventArgs e)
     {
+        try
+        {
+            await AppShell.Current.Navigation.PushAsync(new NewPage1());
+            var xy = App.Current.MainPage;
+        }
+        catch (Exception ex)
+        {
+            var xx = ex.Message;
+        }
         //((IVisualElementController)this).InvalidateMeasure(Microsoft.Maui.Controls.Internals.InvalidationTrigger.MeasureChanged);
 
         //var visualElements = GetAllVisualElements(App.Current.MainPage);

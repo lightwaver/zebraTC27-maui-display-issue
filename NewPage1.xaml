@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp4.NewPage1"
+             Title="NewPage1"
+             BackgroundColor="{StaticResource White}"
+             Shell.NavBarIsVisible="False">
+    <!-- Row 4: Two Buttons -->
+    <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnSpacing="0" BackgroundColor="{StaticResource White}" VerticalOptions="End">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Back Button -->
+        <Button Grid.Column="0"
+            Text="Zurück"
+            Style="{StaticResource WhiteBackgroundButtonStyle}"
+            CommandParameter="back"
+            IsEnabled="{Binding IsEnabled}"
+            Clicked="Back_Clicked"
+            HeightRequest="48"
+            WidthRequest="84"
+            HorizontalOptions="Start" 
+            VerticalOptions="End" />
+
+        <!-- Login Button -->
+        <Button Grid.Column="1" 
+            Text="Login" 
+            IsEnabled="{Binding IsEnabled}"
+            HeightRequest="48"
+            WidthRequest="84"
+            HorizontalOptions="End"  
+            Clicked="Login_Clicked"
+            VerticalOptions="End"/>
+
+        <Button Grid.Column="2"
+            Text="Click Me"
+            HeightRequest="48"
+            WidthRequest="84"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Clicked="ClickMe_Clicked"/>
+    </Grid>
+</ContentPage>
