@@ -99,7 +99,20 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
+                    <Grid Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="{StaticResource White}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1"
+                            Text="Presenter"
+                                Clicked="Presenter_Clicked"
+                            HeightRequest="48"
+                            WidthRequest="120"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+                    </Grid>
                     <!-- Back Button -->
                     <Button Grid.Column="0"
                         Text="Zurück"
@@ -130,6 +143,14 @@
                         HorizontalOptions="End"
                         VerticalOptions="Center"
                         Clicked="ClickMe_Clicked"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" /> <!-- New row added -->
+                    </Grid.RowDefinitions>
+    
                 </Grid>
             </Grid>
         </Grid>

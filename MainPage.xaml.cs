@@ -1,8 +1,13 @@
 ﻿#if ANDROID
+using Android.App;
 using Android.Content;
+using Android.Hardware.Display;
+using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using MauiApp4.Platforms.Android;
+
 #endif
 using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
@@ -155,4 +160,52 @@ public partial class MainPage : ContentPage
 #endif
     }
 
+    private void Presenter_Clicked(object sender, EventArgs e)
+    {
+#if ANDROID
+        var context = Android.App.Application.Context;
+        var presenter = new Presenter(context);
+        presenter.StartSecondActivity();
+#endif
+    }
 }
+
+#if ANDROID
+public class Presenter
+{
+    private readonly Context _context;
+
+    public Presenter(Context context)
+    {
+        _context = context;
+    }
+
+    public void StartSecondActivity()
+    {
+        var intent = new Intent(_context, typeof(SecondActivity));
+        intent.SetFlags(ActivityFlags.NewTask);
+        _context.StartActivity(intent);
+    }
+    public void StartSecondActivityOnDisplay()
+    {
+        var intent = new Intent(_context, typeof(SecondActivity));
+        intent.SetFlags(ActivityFlags.NewTask);
+
+        var displayManager = (DisplayManager)_context.GetSystemService(Context.DisplayService);
+        var displays = displayManager.GetDisplays();
+        var targetDisplay = displays.FirstOrDefault(d => d.DisplayId != 0);
+
+        if (targetDisplay != null && Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            var options = ActivityOptions.MakeBasic();
+            options.SetLaunchDisplayId(targetDisplay.DisplayId);
+            _context.StartActivity(intent, options.ToBundle());
+        }
+        else
+        {
+            // Fallback: launch on default display
+            _context.StartActivity(intent);
+        }
+    }
+}
+#endif
